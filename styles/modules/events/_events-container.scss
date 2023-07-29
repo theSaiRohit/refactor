@@ -1,0 +1,10 @@
+@import "./event-card";
+@import "./event-heading";
+.event-cards-container {
+  background: linear-gradient(to bottom, black 5%, var(--one), var(--five));
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 10vh 0;
+  row-gap: 4vh;
+}

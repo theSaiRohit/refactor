@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --header-height: 6vh;
+  --footer-height: 800px;
+  --font-size: 1.4rem;
+
+  --font-color: white;
+
+  --color-one: black;
+  --placeholder-color: #222222a7;
+  --color-two: white;
+  --color-three: #001bcf;
+  --color-four: #e8e8e8;
+  --label-color: rgb(181, 250, 255);
+  --common-font: "Poppins", sans-serif;
+  --header-font: "Monoton", cursive;
+  --sub-header-font: "Cormorant Garamond", cursive;
+  --barcode-font: "Libre Barcode 39", cursive;
+  --card-shadow: 5px 5px 10px 4.5px rgba(0, 0, 0, 0.4);
+
+  //palette
+
+  --one: #001bcf;
+  --two: #f0a60f; //comp
+
+  --four: #4c00cf; // analagous
+  --five: #0083cf;
+
+  --six: #cf001b; // tri
+  --seven: #1bcf00;
+
+  --eight: #cf0083; //tetra
+  --nine: #cfb400;
+  --ten: #00cf4c;
+
+  --three: #0324ff; // mono
+
+  --transition-values: all 0.5s ease;
+  --card-detail-anim: all 0.5s ease;
+  --card-lag-values: all 1s ease 0.5s;
+  --std-trans: all 0.25s ease;
+}

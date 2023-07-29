@@ -1,0 +1,53 @@
+.home-cta {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 0;
+  color: var(--font-color);
+  background: linear-gradient(to bottom, var(--one) 5%, var(--five));
+  .cta-heading {
+    font-size: 4vw;
+    @include header-font;
+  }
+  .cta-para {
+    text-align: center;
+    margin-bottom: 2vh;
+    font-size: var(--font-size);
+    width: 40%;
+    opacity: 0.8;
+  }
+  .cta-btn {
+    display: block;
+    background-color: var(--font-color);
+    font-size: var(--font-size);
+    border-radius: 7.5px;
+    color: var(--one);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    transition: all 0.3s ease;
+    &:hover {
+      scale: 1.1;
+    }
+    &:active {
+      scale: 0.9;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    .cta-heading {
+      font-size: 6vw;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    --font-size: 1rem;
+    .cta-heading {
+      font-size: 8vw;
+    }
+    .cta-para {
+      width: 70%;
+    }
+  }
+}

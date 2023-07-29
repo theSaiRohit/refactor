@@ -1,0 +1,451 @@
+.event-card {
+  align-self: center;
+  justify-self: center;
+  transition: var(--card-lag-values);
+  width: 1100px;
+  .card-container {
+    margin: 0 auto;
+    width: 100%;
+    aspect-ratio: 3 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    text-decoration: none;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    cursor: pointer;
+    &:hover {
+      .poster-container {
+        &::after {
+          opacity: 0;
+        }
+      }
+      .details-container {
+        .info-container {
+          .brief-info {
+            .right-arrow {
+              display: block;
+              z-index: 2;
+            }
+            &::before {
+              display: block;
+              z-index: 2;
+            }
+            &::after {
+              scale: 8.5;
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+    .poster-container {
+      width: 60%;
+      height: 100%;
+      overflow: hidden;
+      transition: var(--card-lag-values);
+      &::after {
+        transition: var(--transition-values);
+        content: "";
+        height: 100%;
+        width: 100%;
+        background-color: var(--bg-color-purple);
+        position: absolute;
+        opacity: 0.6;
+        filter: brightness(5) hue-rotate(250deg);
+      }
+      .event-poster {
+        object-fit: cover;
+      }
+    }
+    .details-container {
+      width: 40%;
+      height: 100%;
+      background-color: var(--color-two);
+      border-left: 2.5px dashed black;
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem;
+      position: relative;
+      transition: var(--card-lag-values);
+      .event-name {
+        font-size: 3rem;
+        @include header-font;
+        margin: auto 0;
+        margin-top: 2vh;
+      }
+      .info-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        transition: var(--card-lag-values);
+        .brief-info {
+          transition: all 2s ease 0.5s;
+          width: 500px;
+          height: 100%;
+          color: black;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          overflow: hidden;
+          &::before {
+            content: "View Details";
+            font-size: 0.9rem;
+            position: absolute;
+            bottom: 5px;
+            z-index: 1;
+            right: 25px;
+            display: none;
+            font-weight: 600;
+          }
+          &::after {
+            position: absolute;
+            height: 20%;
+            aspect-ratio: 1;
+            content: "";
+            background-color: var(--color-three);
+            border-radius: 50%;
+            z-index: 1;
+            right: 40px;
+            bottom: 25px;
+            transition: var(--transition-values);
+          }
+          .right-arrow {
+            position: absolute;
+            right: 40px;
+            bottom: 25px;
+            z-index: 1;
+            font-size: 4rem;
+            color: white;
+            display: none;
+            transition: var(--transition-values);
+            animation-name: float-anim;
+            animation-duration: 1.2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            @keyframes float-anim {
+              0% {
+                bottom: 10%;
+              }
+              50% {
+                bottom: 15%;
+              }
+              100% {
+                bottom: 10%;
+              }
+            }
+          }
+
+          .barcode-name {
+            margin-top: 4vh;
+            font-family: var(--barcode-font);
+            font-size: 3.5rem;
+            transition: var(--card-detail-anim);
+          }
+          .event-date,
+          .venue,
+          .time {
+            transition: var(--card-detail-anim);
+            padding: 2.5px 0;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 2.5px 0;
+            svg {
+              margin-right: 10px;
+              fill: var(--color-three);
+              font-size: var(--font-size);
+            }
+          }
+        }
+        .desc-container {
+          position: absolute;
+          left: 100%;
+          transition: var(--card-lag-values);
+          height: 60%;
+          opacity: 0;
+          display: flex;
+          flex-direction: column;
+          .details {
+            font-size: 1.2rem;
+            width: 800px;
+            text-align: justify;
+            opacity: 1;
+            display: block;
+            cursor: auto;
+            margin: auto 0;
+          }
+          .register-btn {
+            display: block;
+            background-color: var(--color-one);
+            padding: 0.5em 2.5em;
+            border-radius: 5px;
+            color: var(--font-color);
+            width: fit-content;
+            text-decoration: none;
+            font-weight: 600;
+            &:hover {
+              scale: 1.1;
+            }
+            &:active {
+              scale: 0.9;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cross {
+    display: none;
+    transition: var(--card-lag-values);
+  }
+  &.active {
+    position: relative;
+    .card-container {
+      .details-container {
+        width: 100%;
+        .info-container {
+          .brief-info {
+            opacity: 0;
+            .right-arrow {
+              display: none;
+            }
+            &::before {
+              display: none;
+            }
+            &::after {
+              scale: 0;
+              opacity: 0;
+            }
+            .event-date {
+              opacity: 0;
+              transform: translate(0, -100%);
+            }
+            .time {
+              opacity: 0;
+              transform: translate(100%, 0);
+            }
+            .venue {
+              opacity: 0;
+              transform: translate(0, 100%);
+            }
+            .barcode-name {
+              opacity: 0;
+              transform: translate(100%, 0);
+            }
+          }
+          .desc-container {
+            width: 100%;
+            opacity: 1;
+            left: 1em;
+            height: 60%;
+          }
+        }
+      }
+      .poster-container {
+        width: 10%;
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+    .cross {
+      position: absolute;
+      font-size: 4rem;
+      color: var(--color-three);
+      display: flex;
+      right: 40px;
+      bottom: 25px;
+      opacity: 0.6;
+      cursor: pointer;
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    width: 90vw;
+    .card-container {
+      width: 100%;
+      height: 300px;
+      .poster-container {
+        width: 40%;
+        &::after {
+          display: none;
+        }
+      }
+      .details-container {
+        width: 60%;
+        .event-name {
+          font-size: 2.5rem;
+          // margin-top: 2.5%;
+        }
+        .info-container {
+          .brief-info {
+            &::after {
+              display: none;
+            }
+            &::before {
+              display: block;
+              right: 15px;
+            }
+            .right-arrow {
+              font-size: 2rem;
+              color: var(--color-three);
+              display: block;
+              animation: none;
+            }
+
+            .barcode-name {
+              margin-top: 2.5vh;
+              font-size: 1.8rem;
+            }
+            .event-date,
+            .venue,
+            .time {
+              svg {
+                margin-right: 10px;
+                fill: var(--color-three);
+                font-size: 1rem;
+              }
+            }
+          }
+          .desc-container {
+            position: absolute;
+            left: 100%;
+            transition: var(--card-lag-values);
+            height: 100%;
+            opacity: 0;
+            width: 500px;
+            .details {
+              font-size: 1rem;
+              width: 75vw;
+              text-align: justify;
+              opacity: 1;
+              display: block;
+              cursor: auto;
+            }
+            .register-btn {
+              margin-top: 1vh;
+              padding: 7.5px 25px;
+            }
+          }
+        }
+      }
+    }
+    &.active {
+      position: relative;
+      .card-container {
+        .details-container {
+          .info-container {
+            .desc-container {
+              .details {
+                font-size: 1rem;
+                // width: 30vw;
+              }
+              .register-btn {
+                margin-top: 1vh;
+                padding: 7.5px 25px;
+              }
+            }
+          }
+        }
+      }
+      .cross {
+        font-size: 2rem;
+      }
+    }
+  }
+  @media only screen and (max-width: 680px) {
+    width: 95%;
+    overflow: hidden;
+    height: 370px;
+    .card-container {
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      .poster-container {
+        width: 100%;
+        height: 30%;
+      }
+      .details-container {
+        border-left: none;
+        width: 100%;
+        height: 70%;
+        border-top: 2.5px dashed black;
+        .info-container {
+          .brief-info {
+            .time-info {
+              flex-direction: column;
+            }
+          }
+          .desc-container {
+            height: 100%;
+            left: 1em;
+            right: 100%;
+            top: 100%;
+            width: calc(100% - 2em);
+            .details {
+              width: fit-content;
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+    &.active {
+      .card-container {
+        .poster-container {
+          width: 100%;
+          height: 0;
+        }
+        width: 100%;
+        .details-container {
+          height: 100%;
+          width: 100%;
+
+          .info-container {
+            .desc-container {
+              width: calc(100% - 2em);
+              left: 1em;
+              top: 20%;
+              .details {
+                width: 100%;
+                margin-top: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 420px) {
+    height: 40vh;
+    .card-container {
+      .poster-container {
+        height: 20%;
+      }
+      .details-container {
+        height: 80%;
+        .info-container {
+          .brief-info {
+            .event-date,
+            .venue,
+            .time {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+    &.active {
+      .card-container {
+        .poster-container {
+          height: 0%;
+        }
+        .details-container {
+          height: 100%;
+        }
+      }
+    }
+  }
+}

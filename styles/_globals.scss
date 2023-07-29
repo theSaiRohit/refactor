@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--common-font);
+}
+
+::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-four);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-one);
+}
+
+#__next {
+  overflow-x: hidden;
+}
+
+.img-container {
+  position: relative;
+  img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@mixin header-font {
+  font-family: var(--header-font);
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  font-weight: 400;
+}

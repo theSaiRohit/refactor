@@ -1,0 +1,126 @@
+.home-about {
+  background: linear-gradient(to bottom, #000417 1%, var(--one));
+  min-height: 70vh;
+  width: 100%;
+  padding: 5vh 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  &::before {
+    content: "";
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    backdrop-filter: blur(10px);
+    filter: blur(10px);
+    z-index: 2;
+  }
+  .about-img-container {
+    position: absolute;
+    height: 300%;
+    width: 50%;
+    left: 75%;
+    z-index: 0;
+    .about-img {
+      object-fit: contain;
+      filter: hue-rotate(140deg);
+    }
+  }
+  .about-info-container {
+    width: 60%;
+    padding-left: 5vw;
+    color: var(--font-color);
+
+    .about-header {
+      font-size: 4rem;
+      @include header-font;
+      color: var(--font-color);
+      word-spacing: 10px;
+    }
+    .about-info {
+      font-size: var(--font-size);
+      margin-bottom: 6vh;
+      text-align: justify;
+      opacity: 0.8;
+    }
+    .about-cards-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      .about-cards {
+        width: fit-content;
+        justify-self: center;
+        backdrop-filter: blur(5px);
+
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(31, 31, 31, 0.4);
+        svg {
+          font-size: 1.75rem;
+        }
+        .card-text {
+          margin-top: 2vh;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    .about-img-container {
+      .about-img {
+        object-fit: contain;
+      }
+    }
+    .about-info {
+      text-shadow: 0 0 5px black;
+    }
+    .about-info-container {
+      .about-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 2.5vw;
+        .about-cards {
+          &:last-child {
+            grid-column: -3 / -1;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    .about-img-container {
+      height: 50%;
+      width: 100%;
+      left: 45%;
+      top: 30vh;
+    }
+    .about-info-container {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    --font-size: 1rem;
+    height: fit-content;
+    padding: 4vh 0;
+
+    .about-info-container {
+      .about-header {
+        font-size: 2rem;
+      }
+      .about-cards-container {
+        .about-cards {
+          width: 40vw;
+          margin-top: 2vh;
+          svg {
+            font-size: 1.6rem;
+          }
+          text-align: center;
+        }
+      }
+    }
+  }
+}

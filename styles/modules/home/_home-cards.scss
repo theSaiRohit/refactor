@@ -1,0 +1,92 @@
+.home-cards {
+  padding: 10vh 15%;
+  background-color: var(--five);
+  gap: 1fr;
+  --x-shift: 200px;
+  .info-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4vh 0;
+    gap: 2em;
+    &.roll-in {
+      .cards-img-container {
+        transform: translateX(0);
+      }
+      &:nth-child(even) {
+        .cards-img-container {
+          transform: translateX(0);
+        }
+      }
+      .text-container {
+        opacity: 1;
+        scale: 1;
+      }
+    }
+    &:nth-child(even) {
+      .cards-img-container {
+        order: 1;
+        transform: translateX(calc(-1 * var(--x-shift)));
+      }
+    }
+    .cards-img-container {
+      transition: var(--transition-values);
+      height: 500px;
+      aspect-ratio: 1;
+      border-radius: 15px;
+      transform: translateX(var(--x-shift));
+      .cards-img {
+        border-radius: 15px;
+        object-fit: cover;
+      }
+    }
+    .text-container {
+      opacity: 0;
+      scale: 0.7;
+      transition: var(--transition-values);
+      transition-delay: 0.25s;
+      .info-card-header {
+        font-size: 2.6rem;
+        font-family: var(--sub-header-font);
+        color: var(--font-color);
+      }
+      .info-para {
+        font-size: var(--font-size);
+        color: var(--font-color);
+        opacity: 0.8;
+      }
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    padding: 10vh 2vw;
+  }
+  @media only screen and (max-width: 900px) {
+    --x-shift: 0;
+    .info-card {
+      flex-direction: column;
+      &:nth-child(even) {
+        .cards-img-container {
+          order: 0;
+        }
+      }
+      .text-container {
+        text-align: center;
+      }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    --font-size: 1rem;
+    .info-card {
+      .cards-img-container {
+        width: 95%;
+        height: fit-content;
+        aspect-ratio: 1 / 1;
+      }
+      .text-container {
+        .info-card-header {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}

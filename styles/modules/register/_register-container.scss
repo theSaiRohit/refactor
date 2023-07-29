@@ -1,0 +1,12 @@
+@import "./register-form";
+@import "./register-heading";
+.register-container {
+  overflow: hidden;
+  .form-body {
+    padding: 10vh 0;
+    background: linear-gradient(to bottom, black 5%, var(--one), var(--five));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,45 @@
+.footer {
+  height: var(--footer-height);
+  background: linear-gradient(to bottom, var(--five), white);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--color-one);
+  .footer-img-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    .footer-img {
+      object-fit: contain;
+      filter: hue-rotate(250deg) saturate(1.2);
+    }
+  }
+  .year-span {
+    z-index: 1;
+    font-family: var(--header-font);
+    font-size: 20vw;
+  }
+  .footer-links {
+    width: 250px;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.75rem;
+    a {
+      color: var(--color-one);
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .year-span {
+      font-size: 25vw;
+    }
+  }
+  @media only screen and (max-width: 350px) {
+    .footer-links {
+      width: 200px;
+    }
+  }
+}

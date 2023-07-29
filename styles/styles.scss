@@ -1,0 +1,11 @@
+@import "./variables";
+@import "./globals";
+
+//pages
+@import "./pages/home";
+@import "./pages/events";
+@import "./pages/register";
+
+@import "./components/header";
+@import "./components/footer";
+@import "./components/page-heading";
