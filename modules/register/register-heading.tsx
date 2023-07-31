@@ -13,7 +13,6 @@ export default function RegisterHeading() {
           src="/assets/images/home-bg.webp"
           alt="3D Swirl"
           fill
-          priority
           sizes="100%"
           className="bg-img"
           role="img"

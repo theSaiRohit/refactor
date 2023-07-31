@@ -4,6 +4,7 @@ export interface BriefEventType {
     eventDate: string;
     longDescription: string;
     venue: string;
+    time: string;
     eventPoster: {
       url: string;
     };

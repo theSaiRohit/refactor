@@ -6,7 +6,7 @@ import {
   BsFillCalendarDayFill,
   BsGeoAltFill,
   BsClockFill,
-  BsFillXCircleFill,
+  BsFillXCircleFill
 } from "react-icons/bs";
 
 interface HomeCardEventProps {
@@ -25,18 +25,16 @@ export default function HomeEventCard({
   heading = "def",
   date = new Date(),
   venue = "Chennai",
-  para = "fallback",
+  para = "fallback"
 }: HomeCardEventProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const getTime = useCallback(function getTimeFromDate(dateForTime?: Date) {
     const date = dateForTime ?? new Date();
-    let hours: string | number =
-      date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+    let hours: string | number = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
     const amPm = date.getHours() >= 12 ? "PM" : "AM";
     hours = hours < 10 ? "0" + hours : hours;
-    const minutes =
-      date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
     const time = hours + " : " + minutes + " " + amPm;
     return time;
   }, []);
@@ -53,7 +51,7 @@ export default function HomeEventCard({
     "September",
     "October",
     "November",
-    "December",
+    "December"
   ];
 
   const clickHandler: MouseEventHandler = () => {
@@ -73,33 +71,25 @@ export default function HomeEventCard({
     <div className="event-card" ref={cardRef}>
       <div className="card-container" onClick={clickHandler} ref={containerRef}>
         <div className="img-container poster-container">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            sizes="100%"
-            className="event-poster"
-          />
+          <Image src={image.src} alt={image.alt} fill sizes="100%" className="event-poster" />
         </div>
         <div className="details-container">
           <h2 className="event-name">{heading}</h2>
           <div className="info-container">
             <div className="brief-info">
               <BsArrowRightCircleFill className="right-arrow" />
-              <div className="event-date">
+              <span className="event-date">
                 <BsFillCalendarDayFill />
-                {`${date.getDay()} ${
-                  months[date.getMonth()]
-                } ${date.getFullYear()}`}
-              </div>
-              <div className="time">
+                {`${date.getDay()} ${months[date.getMonth()]} ${date.getFullYear()}`}
+              </span>
+              <span className="time">
                 <BsClockFill />
                 {getTime(date)}
-              </div>
-              <div className="venue">
+              </span>
+              <span className="venue">
                 <BsGeoAltFill />
                 {venue}
-              </div>
+              </span>
               <span className="barcode-name">{heading}</span>
             </div>
             <div className="desc-container">
@@ -108,8 +98,8 @@ export default function HomeEventCard({
                 href={{
                   pathname: `/register`,
                   query: {
-                    event: heading,
-                  },
+                    event: heading
+                  }
                 }}
                 className="register-btn"
               >
